@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - Daramkhola Hydro Energy Limited</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { colors: { primaryRed: '#D91A21', primaryDark: '#2E2345' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } }
+            }
+        }
+    </script>
+    <style>
+        .dropdown:hover .dropdown-menu { display: block; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #D91A21; transition: width 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 flex flex-col min-h-screen">
+    
+    <!-- HEADER -->
+    <header>
+        <div class="bg-primaryRed text-white text-sm py-2">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+                <div class="flex space-x-4"><span class="flex items-center"><i class="fas fa-phone-alt mr-2"></i> +977-1-4246045</span> <span class="hidden md:inline">|</span> <span class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> Thapathali, Kathmandu</span></div>
+                <div class="flex space-x-4 mt-2 md:mt-0">
+                    <span class="flex items-center"><i class="fas fa-envelope mr-2"></i> info@daramkholahydro.com</span>
+                    <div class="flex space-x-3 ml-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white shadow-md sticky top-0 z-50">
+            <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+                <a href="index.html"><img src="logo.png" alt="Logo" class="h-12 md:h-14 object-contain"></a>
+                <nav class="hidden lg:flex items-center space-x-6 text-gray-700 font-medium text-sm">
+                    <a href="index.html" class="nav-link hover:text-primaryRed">Home</a>
+                    <div class="dropdown relative group py-4">
+                        <button class="nav-link hover:text-primaryRed">About <i class="fas fa-caret-down ml-1"></i></button>
+                        <div class="dropdown-menu absolute hidden bg-white shadow-lg py-2 w-48 rounded border-t-2 border-primaryRed left-0 top-full">
+                            <a href="about-us.html" class="block px-4 py-2 hover:bg-gray-100">About Us</a>
+                            <a href="vision-mission.html" class="block px-4 py-2 hover:bg-gray-100">Vision & Mission</a>
+                            <a href="our-team.html" class="block px-4 py-2 hover:bg-gray-100">Our Team</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group py-4">
+                        <button class="nav-link hover:text-primaryRed">Project <i class="fas fa-caret-down ml-1"></i></button>
+                        <div class="dropdown-menu absolute hidden bg-white shadow-lg py-2 w-56 rounded border-t-2 border-primaryRed left-0 top-full">
+                            <a href="overview.html" class="block px-4 py-2 hover:bg-gray-100">Overview</a>
+                            <a href="salient-features.html" class="block px-4 py-2 hover:bg-gray-100">Salient Features</a>
+                            <a href="status-plan.html" class="block px-4 py-2 hover:bg-gray-100">Present Status</a>
+                        </div>
+                    </div>
+                    <a href="gallery.html" class="nav-link hover:text-primaryRed">Gallery</a>
+                    <div class="dropdown relative group py-4">
+                        <button class="nav-link hover:text-primaryRed">Updates <i class="fas fa-caret-down ml-1"></i></button>
+                        <div class="dropdown-menu absolute hidden bg-white shadow-lg py-2 w-48 rounded border-t-2 border-primaryRed left-0 top-full">
+                            <a href="news.html" class="block px-4 py-2 hover:bg-gray-100">News</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link hover:text-primaryRed">Contact</a>
+                    <a href="shareholders.html" class="nav-link hover:text-primaryRed">ShareHolders</a>
+                </nav>
+                <a href="downloads.html" class="hidden lg:inline-block bg-primaryRed text-white px-5 py-2 rounded shadow hover:bg-red-700 transition text-sm">Downloads <i class="fas fa-paper-plane ml-1"></i></a>
+                <button class="lg:hidden text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars"></i></button>
+            </div>
+            <div id="mobile-menu" class="hidden bg-white border-t lg:hidden flex flex-col">
+                <a href="index.html" class="px-4 py-2 border-b">Home</a>
+                <a href="about-us.html" class="px-4 py-2 border-b">About Us</a>
+                <a href="overview.html" class="px-4 py-2 border-b">Project</a>
+                <a href="contact.html" class="px-4 py-2 border-b">Contact</a>
+                <a href="downloads.html" class="px-4 py-2 bg-primaryRed text-white">Downloads</a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="py-12 text-center">
+        <h1 class="text-3xl font-bold">Downloadable Files</h1>
+        <div class="w-16 h-1 bg-green-400 mx-auto mt-2"></div>
+    </section>
+
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <div class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+            <!-- Monthly Progress Report -->
+            <a href="#" class="bg-indigo-800 text-white px-8 py-4 rounded-full shadow-lg hover:bg-indigo-900 flex items-center justify-between gap-3 transition min-w-[300px]">
+                <span class="text-sm font-medium">Monthly Progress Report(Falgun 2081)</span> 
+                <i class="fas fa-arrow-circle-down text-xl"></i>
+            </a>
+            
+            <!-- Audit Report 80-81 -->
+            <a href="#" class="bg-indigo-800 text-white px-8 py-4 rounded-full shadow-lg hover:bg-indigo-900 flex items-center justify-between gap-3 transition min-w-[300px]">
+                <span class="text-sm font-medium">Audit Report(80-81)</span> 
+                <i class="fas fa-arrow-circle-down text-xl"></i>
+            </a>
+
+            <!-- Audit Report 79-80 -->
+             <a href="#" class="bg-indigo-800 text-white px-8 py-4 rounded-full shadow-lg hover:bg-indigo-900 flex items-center justify-between gap-3 transition min-w-[300px]">
+                <span class="text-sm font-medium">Audit Report(79-80)</span> 
+                <i class="fas fa-arrow-circle-down text-xl"></i>
+            </a>
+
+             <!-- AGM Report -->
+             <a href="#" class="bg-indigo-800 text-white px-8 py-4 rounded-full shadow-lg hover:bg-indigo-900 flex items-center justify-between gap-3 transition min-w-[300px]">
+                <span class="text-sm font-medium">AGM Report</span> 
+                <i class="fas fa-arrow-circle-down text-xl"></i>
+            </a>
+
+            <!-- AGM Notice 1 -->
+            <a href="#" class="bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-green-600 flex items-center justify-between gap-3 transition min-w-[300px]">
+                <span class="text-sm font-medium">AGM Notice-1</span> 
+                <i class="fas fa-arrow-circle-down text-xl"></i>
+            </a>
+
+             <!-- AGM Notice 2 -->
+             <a href="#" class="bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-green-600 flex items-center justify-between gap-3 transition min-w-[300px]">
+                <span class="text-sm font-medium">AGM Notice-2</span> 
+                <i class="fas fa-arrow-circle-down text-xl"></i>
+            </a>
+
+             <!-- Issue Open -->
+             <a href="#" class="bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-green-600 flex items-center justify-between gap-3 transition min-w-[300px]">
+                <span class="text-sm font-medium">Daram Khola Issue Open</span> 
+                <i class="fas fa-arrow-circle-down text-xl"></i>
+            </a>
+
+             <!-- Prospectus -->
+             <a href="#" class="bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-green-600 flex items-center justify-between gap-3 transition min-w-[300px]">
+                <span class="text-sm font-medium">Prospectus for Local Foreign Employment</span> 
+                <i class="fas fa-arrow-circle-down text-xl"></i>
+            </a>
+        </div>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 pt-12 mt-auto">
+        <div class="container mx-auto px-4 lg:px-8 mb-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <img src="logo.png" alt="Footer Logo" class="h-10 mb-4">
+                <p class="text-gray-600 text-sm">Daramkhola Hydro Energy Limited is a public limited liability company established with the main objective of electricity generation.</p>
+            </div>
+            <div>
+                <h3 class="text-primaryRed font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><a href="events.html" class="hover:text-primaryRed">Events Calendar</a></li>
+                    <li><a href="downloads.html" class="hover:text-primaryRed">Downloads</a></li>
+                    <li><a href="news.html" class="hover:text-primaryRed">News</a></li>
+                    <li><a href="gallery.html" class="hover:text-primaryRed">Gallery</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-primaryRed font-bold mb-4">Important Links</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><a href="#" class="hover:text-primaryRed">Dept of Electricity Development</a></li>
+                    <li><a href="#" class="hover:text-primaryRed">Nepal Electricity Authority</a></li>
+                    <li><a href="#" class="hover:text-primaryRed">Dept of Hydrology and Metrology</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-primaryRed font-bold mb-4">Contact Details</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><i class="fas fa-phone mr-2"></i> +977-1-4246045</li>
+                    <li><i class="fas fa-map-marker-alt mr-2"></i> Thapathali, Kathmandu</li>
+                    <li><i class="fas fa-envelope mr-2"></i> info@daramkholahydro.com</li>
+                    <li><i class="fas fa-clock mr-2"></i> 10 AM to 6 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg-primaryRed text-white text-center py-4 text-sm">
+            &copy; All Rights Reserved. Daramkhola Hydro Energy Limited @ 2024
+        </div>
+    </footer>
+</body>
+</html>

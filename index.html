@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Daramkhola Hydro Energy Limited</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primaryRed: '#D91A21', primaryDark: '#2E2345' },
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dropdown:hover .dropdown-menu { display: block; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #D91A21; transition: width 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+        /* Slider Styles */
+        .slide { display: none; }
+        .slide.active { display: block; }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 flex flex-col min-h-screen">
+
+    <!-- HEADER -->
+    <header>
+        <div class="bg-primaryRed text-white text-sm py-2">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+                <div class="flex space-x-4"><span class="flex items-center"><i class="fas fa-phone-alt mr-2"></i> +977-1-4246045</span> <span class="hidden md:inline">|</span> <span class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> Thapathali, Kathmandu</span></div>
+                <div class="flex space-x-4 mt-2 md:mt-0">
+                    <span class="flex items-center"><i class="fas fa-envelope mr-2"></i> info@daramkholahydro.com</span>
+                    <div class="flex space-x-3 ml-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white shadow-md sticky top-0 z-50">
+            <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+                <a href="index.html"><img src="logo.png" alt="Logo" class="h-12 md:h-14 object-contain"></a>
+                <nav class="hidden lg:flex items-center space-x-6 text-gray-700 font-medium text-sm">
+                    <a href="index.html" class="nav-link text-primaryRed">Home</a>
+                    <div class="dropdown relative group py-4">
+                        <button class="nav-link hover:text-primaryRed">About <i class="fas fa-caret-down ml-1"></i></button>
+                        <div class="dropdown-menu absolute hidden bg-white shadow-lg py-2 w-48 rounded border-t-2 border-primaryRed left-0 top-full">
+                            <a href="about-us.html" class="block px-4 py-2 hover:bg-gray-100">About Us</a>
+                            <a href="vision-mission.html" class="block px-4 py-2 hover:bg-gray-100">Vision & Mission</a>
+                            <a href="our-team.html" class="block px-4 py-2 hover:bg-gray-100">Our Team</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group py-4">
+                        <button class="nav-link hover:text-primaryRed">Project <i class="fas fa-caret-down ml-1"></i></button>
+                        <div class="dropdown-menu absolute hidden bg-white shadow-lg py-2 w-56 rounded border-t-2 border-primaryRed left-0 top-full">
+                            <a href="overview.html" class="block px-4 py-2 hover:bg-gray-100">Overview</a>
+                            <a href="salient-features.html" class="block px-4 py-2 hover:bg-gray-100">Salient Features</a>
+                            <a href="status-plan.html" class="block px-4 py-2 hover:bg-gray-100">Present Status</a>
+                        </div>
+                    </div>
+                    <a href="gallery.html" class="nav-link hover:text-primaryRed">Gallery</a>
+                    <div class="dropdown relative group py-4">
+                        <button class="nav-link hover:text-primaryRed">Updates <i class="fas fa-caret-down ml-1"></i></button>
+                        <div class="dropdown-menu absolute hidden bg-white shadow-lg py-2 w-48 rounded border-t-2 border-primaryRed left-0 top-full">
+                            <a href="news.html" class="block px-4 py-2 hover:bg-gray-100">News</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link hover:text-primaryRed">Contact</a>
+                    <a href="shareholders.html" class="nav-link hover:text-primaryRed">ShareHolders</a>
+                </nav>
+                <a href="downloads.html" class="hidden lg:inline-block bg-primaryRed text-white px-5 py-2 rounded shadow hover:bg-red-700 transition text-sm">Downloads <i class="fas fa-paper-plane ml-1"></i></a>
+                <button class="lg:hidden text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars"></i></button>
+            </div>
+            <div id="mobile-menu" class="hidden bg-white border-t lg:hidden flex flex-col">
+                <a href="index.html" class="px-4 py-2 border-b">Home</a>
+                <a href="about-us.html" class="px-4 py-2 border-b">About Us</a>
+                <a href="overview.html" class="px-4 py-2 border-b">Project</a>
+                <a href="contact.html" class="px-4 py-2 border-b">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SLIDER -->
+    <section class="bg-primaryDark text-white relative h-[500px] flex items-center justify-center overflow-hidden">
+        <!-- Slide 1 -->
+        <div class="slide active absolute inset-0 flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(46, 35, 69, 0.8), rgba(46, 35, 69, 0.8)), url('https://placehold.co/1920x600');">
+            <div class="text-center px-4">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">Paving the way through Hydropower <br> for Nepal's Future</h2>
+                <a href="about-us.html" class="inline-block border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-primaryDark transition">Learn More About Us >></a>
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide absolute inset-0 flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(46, 35, 69, 0.8), rgba(46, 35, 69, 0.8)), url('https://placehold.co/1920x600/333/fff');">
+            <div class="text-center px-4">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">Sustainable Energy <br> for a Brighter Tomorrow</h2>
+                <a href="overview.html" class="inline-block border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-primaryDark transition">View Project Status >></a>
+            </div>
+        </div>
+        <!-- Controls -->
+        <button onclick="changeSlide(-1)" class="absolute left-4 md:left-10 text-white text-3xl hover:text-gray-300"><i class="fas fa-chevron-left"></i></button>
+        <button onclick="changeSlide(1)" class="absolute right-4 md:right-10 text-white text-3xl hover:text-gray-300"><i class="fas fa-chevron-right"></i></button>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section class="py-16 container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
+        <div class="w-full md:w-1/2">
+            <img src="https://placehold.co/600x400" alt="Construction Site" class="rounded shadow-lg w-full">
+        </div>
+        <div class="w-full md:w-1/2">
+            <h2 class="text-3xl font-bold mb-4">Who are We?</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                Daramkhola Hydro Energy Limited is a public limited liability company... [Content from image] ...focusing on the development of the Daramkhola Hydroelectric Project.
+            </p>
+            <a href="about-us.html" class="bg-primaryRed text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-red-700 transition">Learn More >></a>
+        </div>
+    </section>
+
+    <!-- ABOUT PROJECT (Dark Red Section) -->
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl font-bold mb-4">About Daram Khola Hydro<br>Energy Project</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    The project is located in Baglung District... [Placeholder for full text]. It aims to contribute clean energy to the national grid.
+                </p>
+                <a href="overview.html" class="bg-primaryRed text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-red-700 transition">Learn More >></a>
+            </div>
+            <div class="w-full md:w-1/2 relative">
+                <div class="bg-red-900 text-white p-12 rounded shadow-xl flex items-center justify-between">
+                    <span class="text-2xl font-bold">9.6 MW Capacity</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Icons Grid -->
+        <div class="container mx-auto px-4 mt-12 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded shadow text-center">
+                <i class="fas fa-cube text-3xl text-primaryRed mb-3"></i>
+                <h4 class="font-bold">Locally Promoted Hydropower</h4>
+            </div>
+            <div class="bg-white p-6 rounded shadow text-center">
+                <i class="fas fa-chart-line text-3xl text-primaryRed mb-3"></i>
+                <h4 class="font-bold">Reliable hydrological data</h4>
+            </div>
+            <div class="bg-white p-6 rounded shadow text-center">
+                <i class="fas fa-users text-3xl text-primaryRed mb-3"></i>
+                <h4 class="font-bold">Strong community support</h4>
+            </div>
+            <div class="bg-white p-6 rounded shadow text-center">
+                <i class="fas fa-handshake text-3xl text-primaryRed mb-3"></i>
+                <h4 class="font-bold">Heavy promoter connection</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="py-16 text-center">
+        <h2 class="text-3xl font-bold mb-10">Our Core Values</h2>
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gray-600 text-white p-10 h-64 flex items-center justify-center text-xl font-bold">Empower people participation in Power Sector</div>
+            <div class="bg-gray-600 text-white p-10 h-64 flex items-center justify-center text-xl font-bold">Maximize Value of Money (Time, Technology and Competence)</div>
+            <div class="bg-gray-600 text-white p-10 h-64 flex items-center justify-center text-xl font-bold">Employee Innovative Engineering & Solutions</div>
+        </div>
+    </section>
+
+    <!-- CHAIRMAN SECTION -->
+    <section class="bg-gray-800 text-white py-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
+            <div class="w-full md:w-2/3">
+                <h2 class="text-3xl font-bold text-gray-400 mb-2">Mr. Nar Bahadur Pun (Niraj)</h2>
+                <p class="mb-4 text-gray-500">Executive Chairman</p>
+                <p class="leading-relaxed text-gray-300">
+                    We are launching this company with a vision to replicate our knowledge... [Placeholder text from image] ...contribute to nation building.
+                </p>
+            </div>
+            <div class="w-full md:w-1/3 text-center">
+                <img src="https://placehold.co/200x200" alt="Chairman" class="rounded-xl border-4 border-white inline-block">
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY PREVIEW -->
+    <section class="py-16 text-center">
+        <h2 class="text-3xl font-bold mb-10">Gallery</h2>
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-2">
+            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
+            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
+            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
+            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
+            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
+            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
+            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
+            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
+        </div>
+    </section>
+
+    <!-- CONTACT & MAP -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row gap-12">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl font-bold text-primaryRed mb-6">Get In Touch</h2>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center"><i class="fas fa-map-marker-alt w-8 text-primaryRed"></i> <span>Thapathali, Kathmandu</span></div>
+                    <div class="flex items-center"><i class="fas fa-phone-alt w-8 text-primaryRed"></i> <span>+977-1-4246045</span></div>
+                    <div class="flex items-center"><i class="fas fa-envelope w-8 text-primaryRed"></i> <span>info@daramkholahydro.com</span></div>
+                </div>
+                <div class="bg-gray-200 h-64 w-full rounded relative overflow-hidden">
+                     <!-- Google Map Placeholder -->
+                     <img src="https://placehold.co/600x400?text=Google+Map+Location" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 bg-white p-8 rounded shadow">
+                <h2 class="text-2xl font-bold mb-6">Send Us Message</h2>
+                <form class="space-y-4">
+                    <div class="flex gap-4">
+                        <input type="text" placeholder="Name" class="w-1/2 border p-3 rounded">
+                        <input type="text" placeholder="Phone" class="w-1/2 border p-3 rounded">
+                    </div>
+                    <input type="email" placeholder="Email" class="w-full border p-3 rounded">
+                    <textarea placeholder="Your Message" rows="4" class="w-full border p-3 rounded"></textarea>
+                    <button class="bg-primaryRed text-white px-8 py-3 rounded hover:bg-red-700 w-full md:w-auto">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 pt-12">
+        <div class="container mx-auto px-4 lg:px-8 mb-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <img src="logo.png" alt="Footer Logo" class="h-10 mb-4">
+                <p class="text-gray-600 text-sm">Daramkhola Hydro Energy Limited is a public limited liability company established with the main objective of electricity generation.</p>
+            </div>
+            <div>
+                <h3 class="text-primaryRed font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><a href="events.html">Events Calendar</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-primaryRed font-bold mb-4">Important Links</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><a href="#">Dept of Electricity Development</a></li>
+                    <li><a href="#">Nepal Electricity Authority</a></li>
+                    <li><a href="#">Dept of Hydrology and Metrology</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-primaryRed font-bold mb-4">Contact Details</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><i class="fas fa-phone mr-2"></i> +977-1-4246045</li>
+                    <li><i class="fas fa-map-marker-alt mr-2"></i> Thapathali, Kathmandu</li>
+                    <li><i class="fas fa-envelope mr-2"></i> info@daramkholahydro.com</li>
+                    <li><i class="fas fa-clock mr-2"></i> 10 AM to 6 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg-primaryRed text-white text-center py-4 text-sm">
+            &copy; All Rights Reserved. Daramkhola Hydro Energy Limited @ 2024
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(() => changeSlide(1), 5000); // Auto slide every 5s
+    </script>
+</body>
+</html>
