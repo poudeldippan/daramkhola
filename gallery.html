@@ -19,6 +19,57 @@
         .nav-link { position: relative; }
         .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #D91A21; transition: width 0.3s; }
         .nav-link:hover::after { width: 100%; }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        .modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0} 
+            to {opacity: 1}
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800 flex flex-col min-h-screen">
@@ -63,6 +114,7 @@
                         <button class="nav-link hover:text-primaryRed">Updates <i class="fas fa-caret-down ml-1"></i></button>
                         <div class="dropdown-menu absolute hidden bg-white shadow-lg py-2 w-48 rounded border-t-2 border-primaryRed left-0 top-full">
                             <a href="news.html" class="block px-4 py-2 hover:bg-gray-100">News</a>
+                            <a href="events.html" class="block px-4 py-2 hover:bg-gray-100">Events</a>
                         </div>
                     </div>
                     <a href="contact.html" class="nav-link hover:text-primaryRed">Contact</a>
@@ -84,27 +136,173 @@
     <section class="bg-gray-800 text-white py-12 text-center"><h1 class="text-3xl font-bold">Gallery</h1></section>
     
     <main class="container mx-auto px-4 py-12 flex-grow">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <!-- Placeholders for 16 images -->
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
-            <img src="https://placehold.co/400x300" class="w-full h-48 object-cover rounded shadow hover:opacity-90 transition">
+        <!-- Gallery Grid Container - Static HTML Markup -->
+        <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/AB5B.jpg" alt="AB5B" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/AB10-to-AB11.jpg" alt="AB10 to AB11" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Gravel-Trap-area-with-Gravel-Trap.jpg" alt="Gravel Trap area with Gravel Trap" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Headpond.jpg" alt="Headpond" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/In-between-IP2-and-IP4.jpg" alt="In between IP2 and IP4" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Intake-area.jpg" alt="Intake area" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-AB17-to-AB18-work-of-saddle-support-Stopped-due-to-limited-numbers-of-Labor-from-Civil-Contractor.jpg" alt="Work stopped on saddle support" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-after-installation-of-rail-line-on-the-crane-beam.png" alt="Rail line on the crane beam" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-backfilling-in-surge-tank.jpg" alt="Backfilling in surge tank" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-during-AB39-to-AB-41-1st-Road-Crossing.jpg" alt="AB39 to AB41 1st Road Crossing" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-during-installation-of-base-frame-for-turbine-Generator-along-with-Draft-tube-completed.jpg" alt="Turbine Generator Base Frame Installation" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-during-pipe-erection-between-AB34-AB35.jpg" alt="Pipe erection between AB34 and AB35" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-EM-equipment-base-plate-on-machine-floor.jpg" alt="EM equipment base plate" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-EM-equipment-on-machine-floor-at-the-moment.jpg" alt="EM equipment on machine floor" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-EM-equipment-transfer-to-the-site.jpg" alt="EM equipment transfer" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-EM-Panel-on-Control-Room-at-the-moment.jpg" alt="EM Panel in Control Room" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-AB22.jpg" alt="AB22" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photographs-of-AB25-on-the-background-of-Yard-three-saddle-and-one-casing-work-remains-after-transfer-the-required-pipe-to-site.jpg" alt="AB25 Yard Work" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-alignment-at-road-section.jpg" alt="Alignment at road section" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-alignment-between-IP51-IP56.jpg" alt="Alignment between IP51 and IP56" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-Blocks-between-AB12-AB17.jpg" alt="Blocks between AB12 and AB17" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-Bridge-Road-Crossing-on-AB-32-Going-on-Stopped-due-to-Land-issue.jpg" alt="Bridge Road Crossing stopped" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-Crossing-and-road-section-between-IP39-AB-40-and-AB-41.jpg" alt="Crossing and road section" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-drilling-for-electrode-in-powerhouse.jpg" alt="Drilling for electrode in Power House" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-excavation-complete-for-new-access-road-between-AB10-AB11.jpg" alt="Excavation complete for access road" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-Headworks-with-intake-undersluice-weir.jpg" alt="Headworks with intake and weir" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-High-Saddle-after-AB-52-to-AB-53-Remaining-five-saddle-to-complete-.jpg" alt="High Saddle work remaining" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-pipe-crossing-for-local-people.jpg" alt="Pipe crossing for local people" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-pipe-erection-between-IP25-IP26.jpg" alt="Pipe erection between IP25 and IP26" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-pipe-erection-between-IP26-IP29.jpg" alt="Pipe erection between IP26 and IP29" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-pipe-erection-between-IP29-IP31.jpg" alt="Pipe erection between IP29 and IP31" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-Powerhouse-Control-Room-switchyard-area.jpg" alt="Powerhouse Control Room switchyard area" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-Road-crossing-from-AB39-to-AB40-–-AB41-Complete-along-with-Mid-Hill-Highway-Road-Handover-works.jpg" alt="Road crossing complete" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-Saddle-support-form-AB-31-to-AB-32-Going-on-Stopped-due-to-Land-issue.jpg" alt="Saddle support stopped due to Land issue" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-Saddle-supports-and-Pipe-line-of-IP28-IP29.jpg" alt="Saddle supports and Pipe line of IP28 IP29" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-Saddle-supports-at-AB34-AB33-AB32-all-Complete-except-Two-pipe-for-riprap-works-on-river-side.jpg" alt="Saddle supports complete except two pipes" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-surge-Anchor-Block-ST-3.jpg" alt="Surge Anchor Block ST-3" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-tailrace-rebar-works-final-slab-and-seven-meter-of-length-remains.jpg" alt="Tailrace rebar works final slab" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-welding-ongoing-between-IP18-IP19-complete-where-three-saddle-to-be-erected-and-pipe-will-installed.jpg" alt="Welding ongoing between IP18 IP19" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photograph-of-Works-going-on-from-AB-49-AB-50-to-AB-T.jpg" alt="Works going on from AB-49 to AB-T" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photographs-of-bushings-and-other-equipment-for-transmission-line.jpg" alt="Bushings and other equipment for transmission line" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photographs-of-saddle-support-along-waterway-from-AB56-AB58-Where-due-to-Land-issue-AB-58-is-still-could-not-excavated.jpg" alt="Saddle support stopped due to Land issue" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photographs-of-Switchyard-on-Harichaur.jpg" alt="Switchyard on Harihachaur" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Photographs-of-transmission-line-progress.jpg" alt="Transmission line progress" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Pipe-erection-between-IP8-IP9.jpg" alt="Pipeline erection between IP8 and IP9" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Pipe-erection-between-IP11-13-IP17.jpg" alt="Pipe erection between IP13 and IP17" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Powerhouse.jpg" alt="Powerhouse" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Powerhouse-EM-works.jpg" alt="Powerhouse EM works" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Settling-Baisn-spillway.jpg" alt="Setting Basin spillway" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <div class="relative overflow-hidden rounded shadow-lg group">
+                <img src="photos/HighQ/Settling-Basin-with-Descender-Outlet-Gate.jpg" alt="Setting Basin with Descender Outlet Gate" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openModal(this)">
+            </div>
+            <!-- All 52 images generated statically here -->
         </div>
     </main>
 
+    <!-- Modal/Lightbox Structure -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="flex flex-col h-full justify-center items-center p-4">
+            <img class="modal-content" id="modalImage">
+            <div id="modalCaption" class="modal-caption text-base font-semibold text-white mt-4"></div>
+        </div>
+    </div>
+    
     <!-- FOOTER -->
     <footer class="bg-white border-t border-gray-200 pt-12 mt-auto">
         <div class="container mx-auto px-4 lg:px-8 mb-8 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -143,5 +341,30 @@
             &copy; All Rights Reserved. Daramkhola Hydro Energy Limited @ 2024
         </div>
     </footer>
+
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const captionText = document.getElementById('modalCaption');
+
+        function openModal(imgElement) {
+            modal.style.display = "block";
+            modalImg.src = imgElement.src;
+            // Use the alt text (which contains the cleaned filename) as the caption
+            captionText.innerHTML = imgElement.alt; 
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when user clicks outside the image/caption area
+        modal.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
+

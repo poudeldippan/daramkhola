@@ -24,12 +24,20 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-            padding: 0 1rem; /* Move padding here but 0 vertical */
+            padding: 0 1rem;
         }
         .accordion-content.active {
-            max-height: 2000px; /* Large enough to fit content */
+            max-height: 2000px;
             padding-top: 1rem;
             padding-bottom: 1rem;
+        }
+        /* Style adjustments for table content inside accordion */
+        .accordion-content table td {
+            padding: 0.75rem 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .accordion-content table tr:last-child td {
+            border-bottom: none;
         }
     </style>
 </head>
@@ -101,81 +109,290 @@
     </section>
 
     <main class="container mx-auto px-4 py-8 mb-16 flex-grow">
-        <!-- Accordion Item 1 (General) -->
-        <div class="border mb-4 rounded bg-gray-50 overflow-hidden">
-            <button class="w-full text-left p-4 bg-gray-800 text-white font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
-                <span>General</span> <i class="fas fa-minus"></i>
-            </button>
-            <div class="accordion-content active bg-white border-x border-b border-gray-200">
-                <table class="w-full text-sm text-left border-collapse">
-                    <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Source River</td><td class="py-3 px-2">: Daram Khola</td></tr>
-                    <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">VDC</td><td class="py-3 px-2">: Galkot Municipality (Baglung); Musikot Municipality (Gulmi)</td></tr>
-                    <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">District</td><td class="py-3 px-2">: Baglung</td></tr>
-                    <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Zone</td><td class="py-3 px-2">: Dhawalagiri (Baglung), Lumbini (Gulmi)</td></tr>
-                    <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Development Region</td><td class="py-3 px-2">: Western</td></tr>
-                    <tr>
-                        <td class="py-3 px-2 font-semibold align-top">Location of the Project</td>
-                        <td class="py-3 px-2">
-                            28° 11' 00" to 28° 12' 30" N<br>
-                            83° 19' 00" to 83° 21' 43" E
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        <!-- Accordion Container -->
+        <div class="max-w-4xl mx-auto">
 
-        <!-- Accordion Item 2 -->
-        <div class="border mb-4 rounded bg-gray-50 overflow-hidden">
-            <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
-                <span>Power Development</span> <i class="fas fa-plus"></i>
-            </button>
-            <div class="accordion-content bg-white border-x border-b border-gray-200">
-                <p class="py-2">Detailed content for Power Development goes here...</p>
+            <!-- 1. General -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-800 text-white font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>General</span> <i class="fas fa-minus"></i>
+                </button>
+                <div class="accordion-content active bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Source River</td><td class="py-3 px-2">: Daram Khola</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">VDC</td><td class="py-3 px-2">: Galkot Municipality (Baglung); Musikot Municipality (Gulmi)</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">District</td><td class="py-3 px-2">: Baglung</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Zone</td><td class="py-3 px-2">: Dhawalagiri (Baglung), Lumbini (Gulmi)</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Development Region</td><td class="py-3 px-2">: Western</td></tr>
+                        <tr>
+                            <td class="py-3 px-2 font-semibold align-top">Location of the Project (To be amended after 9.6 MW license)</td>
+                            <td class="py-3 px-2">
+                                28° 11' 00" to 28° 12' 30" N<br>
+                                83° 19' 00" to 83° 21' 43" E
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-        </div>
-        
-        <!-- Accordion Item 3 -->
-        <div class="border mb-4 rounded bg-gray-50 overflow-hidden">
-            <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
-                <span>Hydrology and Meteorology</span> <i class="fas fa-plus"></i>
-            </button>
-            <div class="accordion-content bg-white border-x border-b border-gray-200">
-                <p class="py-2">Detailed content for Hydrology and Meteorology goes here...</p>
-            </div>
-        </div>
-        
-        <!-- Accordion Item 4 -->
-        <div class="border mb-4 rounded bg-gray-50 overflow-hidden">
-            <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
-                <span>Weir and Undersluice</span> <i class="fas fa-plus"></i>
-            </button>
-            <div class="accordion-content bg-white border-x border-b border-gray-200">
-                <p class="py-2">Content goes here...</p>
-            </div>
-        </div>
 
-         <!-- Accordion Item 5 -->
-         <div class="border mb-4 rounded bg-gray-50 overflow-hidden">
-            <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
-                <span>Intake</span> <i class="fas fa-plus"></i>
-            </button>
-            <div class="accordion-content bg-white border-x border-b border-gray-200">
-                <p class="py-2">Content goes here...</p>
+            <!-- 2. Power Development -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Power Development</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Type of Power Generation</td><td class="py-3 px-2">: Run-of-the-river</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Turbine Discharge</td><td class="py-3 px-2">: 2 Nos. x 5.15 m³/sec</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Total Gross Head</td><td class="py-3 px-2">: 126 m</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Rated Net Head</td><td class="py-3 px-2">: 111.2 m</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Installed Capacity</td><td class="py-3 px-2">: 9.6 MW</td></tr>
+                    </table>
+                </div>
             </div>
-        </div>
 
-        <!-- Accordion Item 6 -->
-         <div class="border mb-4 rounded bg-gray-50 overflow-hidden">
-            <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
-                <span>Gravel Trap</span> <i class="fas fa-plus"></i>
-            </button>
-            <div class="accordion-content bg-white border-x border-b border-gray-200">
-                <p class="py-2">Content goes here...</p>
+            <!-- 3. Average Annual Energy -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Average Annual Energy</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Total Energy</td><td class="py-3 px-2">: 56.09 GWh</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Dry Energy (4 month)</td><td class="py-3 px-2">: 9.99 GWh (17.26%)</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Wet Energy (8 month)</td><td class="py-3 px-2">: 46.10 GWh (82.74%)</td></tr>
+                    </table>
+                </div>
             </div>
-        </div>
-        
-         <!-- Add other items similarly -->
 
+            <!-- 4. Hydrology and Meteorology -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Hydrology and Meteorology</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Catchment Area at Intake</td><td class="py-3 px-2">: 7 km²</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Area < 3,000 m</td><td class="py-3 px-2">: 240 km²</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Average Annual Precipitation</td><td class="py-3 px-2">: 2,255 mm</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Design 100-yrs Flood at Intake</td><td class="py-3 px-2">: 740 m³/sec</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Downstream Release</td><td class="py-3 px-2">: 263 lps</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Long-term Average Flow</td><td class="py-3 px-2">: 16.61 m³/sec</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">40 Percentile flow (Q40%)</td><td class="py-3 px-2">: 10.30 m³/sec</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 5. Weir and Undersluice -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Weir and Undersluice</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Type of Weir</td><td class="py-3 px-2">: Free flow concrete gravity weir</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Crest Length of Weir</td><td class="py-3 px-2">: 24 m</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Crest Level of Weir</td><td class="py-3 px-2">: 938.50 amsl</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Top Width of Weir</td><td class="py-3 px-2">: 2 m</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Crest Length of Undersluice</td><td class="py-3 px-2">: 4 m</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Floor elevation of Undersluice</td><td class="py-3 px-2">: 934 amsl</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Nos. of gates in Undersluice</td><td class="py-3 px-2">: 2 No.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 6. Intake -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Intake</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Type</td><td class="py-3 px-2">: Orifice</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">No. of Opening</td><td class="py-3 px-2">: 3</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Crest Level</td><td class="py-3 px-2">: 936.0 amsl</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Width &times; High</td><td class="py-3 px-2">: 3.0 m &times; 2.0 m (2 each)</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 7. Gravel Trap -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Gravel Trap</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Length</td><td class="py-3 px-2">: 4.5 m</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Size (B &times; D)</td><td class="py-3 px-2">: 7.0 m &times; 3.8 m</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Gravel Flushing Channel</td><td class="py-3 px-2">: 1.0 m &times; 1.0 m</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 8. Approach Canal -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Approach Canal</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Type</td><td class="py-3 px-2">: RCC Rectangular</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Length</td><td class="py-3 px-2">: 16.5 m</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Size (B &times; D)</td><td class="py-3 px-2">: 1.75 m &times; 1.75 m</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 9. Settling Basin -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Settling Basin</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Type</td><td class="py-3 px-2">: Conventional with intermittent flushing</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Size of Each Chamber (L &times; B &times; H)</td><td class="py-3 px-2">: 50.0 m &times; 7.5 m &times; 7.5 m</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Particle Size to be Removed</td><td class="py-3 px-2">: &ge; 0.2 mm</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">No. of Flushing Channel</td><td class="py-3 px-2">: 2</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Size of Flushing Pipe (Diameter)</td><td class="py-3 px-2">: 1 m</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Water Level in Head Pond</td><td class="py-3 px-2">: 938.0 amsl</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 10. Headrace Pipe/Penstock pipe -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Headrace Pipe/Penstock pipe</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Type</td><td class="py-3 px-2">: Pressurized MS Circular</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Size</td><td class="py-3 px-2">: 2.2 m, 2.0 m and 1.8 m and 1.275 m</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Length</td><td class="py-3 px-2">: 4226 m</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Thickness</td><td class="py-3 px-2">: 10 mm to 18 mm</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 11. Surge Tank -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Surge Tank</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Type and Material</td><td class="py-3 px-2">: Non Restrained RCC Circular tank and steel pipe</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Normal Water Operating Level</td><td class="py-3 px-2">: 938.5 amsl</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Internal Diameter</td><td class="py-3 px-2">: 8 m for Concrete tank and 2.2 m-2.5 m dia for steel pipe</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Height from its Base</td><td class="py-3 px-2">: 16.34 m for concrete tank</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Upsurge Level</td><td class="py-3 px-2">: 950.2 amsl</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Down Surge Level</td><td class="py-3 px-2">: 900.110 amsl</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 12. Powerhouse -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Powerhouse</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Type</td><td class="py-3 px-2">: Surface</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Size (L &times; B &times; H)</td><td class="py-3 px-2">: 35.3 m &times; 16.3 m &times; 20 m</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Number of Units</td><td class="py-3 px-2">: 2</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 13. Type of Turbine -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Type of Turbine</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Rated Capacity</td><td class="py-3 px-2">: 2 &times; 4.8 MW</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Tail Water Level</td><td class="py-3 px-2">: 811.5 amsl</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Rated Speed</td><td class="py-3 px-2">: 600 rpm</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 14. Tailrace Canal -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Tailrace Canal</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Type</td><td class="py-3 px-2">: RCC Rectangular</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Size (B &times; D)</td><td class="py-3 px-2">: 2.9 m &times; 2.2 m</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Length</td><td class="py-3 px-2">: 41.30 m</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Tailrace Outlet</td><td class="py-3 px-2">: Daram Khola</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 15. Generator -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Generator</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Type</td><td class="py-3 px-2">: Brushless, synchronous, 3 phase</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Specification</td><td class="py-3 px-2">: 0.8 PF, 5648 kVA, 6.6 kV, 50 Hz x 2 Nos.</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 16. Transmission Line -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Transmission Line</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Specification</td><td class="py-3 px-2">: LILO based (Manewa to Harihar S/C 33kV transmission line)</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Length</td><td class="py-3 px-2">: 14 km</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 17. Financial Indicators -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Financial Indicators</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Project Cost (Excluding IDC)</td><td class="py-3 px-2">: 1,742.49 million NRs.</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Project Cost (Including IDC)</td><td class="py-3 px-2">: 1,872.49 million NRs.</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Financial Cost per MW</td><td class="py-3 px-2">: 195.05 million NRs.</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">Interest Rate</td><td class="py-3 px-2">: 9% (revision required)</td></tr>
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold align-top">FIRR</td><td class="py-3 px-2">: 13.25% (revision required)</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">NPV</td><td class="py-3 px-2">: 445.95 million NRs. (revision required)</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 18. Project Completion -->
+            <div class="border mb-4 rounded overflow-hidden shadow-md">
+                <button class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex justify-between items-center transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>Project Completion</span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="accordion-content bg-white border-x border-b border-gray-200">
+                    <table class="w-full text-sm text-left">
+                        <tr class="border-b"><td class="py-3 px-2 font-semibold w-1/3 align-top">Project Completion</td><td class="py-3 px-2">: 29ᵗʰ Poush, 2081</td></tr>
+                        <tr><td class="py-3 px-2 font-semibold align-top">Project Duration</td><td class="py-3 px-2">: 24 months</td></tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </main>
 
     <!-- FOOTER -->
@@ -222,13 +439,10 @@
             const content = btn.nextElementSibling;
             const icon = btn.querySelector('i');
             
-            // Close other items if needed (optional)
-            // document.querySelectorAll('.accordion-content').forEach(c => {
-            //     if (c !== content) c.classList.remove('active');
-            // });
-
+            // Toggle active class
             content.classList.toggle('active');
             
+            // Toggle Icon and Button Styling
             if (content.classList.contains('active')) {
                 icon.classList.remove('fa-plus');
                 icon.classList.add('fa-minus');

@@ -23,8 +23,17 @@
         .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #D91A21; transition: width 0.3s; }
         .nav-link:hover::after { width: 100%; }
         /* Slider Styles */
-        .slide { display: none; }
-        .slide.active { display: block; }
+        .slide { 
+            display: none; 
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+            position: absolute; /* Added absolute positioning for smooth transition */
+            inset: 0;
+        }
+        .slide.active { 
+            display: flex; 
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800 flex flex-col min-h-screen">
@@ -46,6 +55,7 @@
         </div>
         <div class="bg-white shadow-md sticky top-0 z-50">
             <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+                <!-- LOGO PATH -->
                 <a href="index.html"><img src="photos/Logo.png" alt="Logo" class="h-12 md:h-14 object-contain"></a>
                 <nav class="hidden lg:flex items-center space-x-6 text-gray-700 font-medium text-sm">
                     <a href="index.html" class="nav-link text-primaryRed">Home</a>
@@ -89,54 +99,53 @@
 
     <!-- HERO SLIDER -->
     <section class="bg-primaryDark text-white relative h-[500px] flex items-center justify-center overflow-hidden">
-        <!-- Slide 1 -->
-        <div class="slide active absolute inset-0 flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(46, 35, 69, 0.8), rgba(46, 35, 69, 0.8)), url('https://placehold.co/1920x600');">
+        <!-- Slide 1 (Paving the way) -->
+        <div class="slide active absolute inset-0 flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(46, 35, 69, 0.8), rgba(46, 35, 69, 0.8)), url('photos/HighQ/AB10-to-AB11.jpg');">
             <div class="text-center px-4">
                 <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">Paving the way through Hydropower <br> for Nepal's Future</h2>
                 <a href="about-us.html" class="inline-block border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-primaryDark transition">Learn More About Us >></a>
             </div>
         </div>
-        <!-- Slide 2 -->
-        <div class="slide absolute inset-0 flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(46, 35, 69, 0.8), rgba(46, 35, 69, 0.8)), url('https://placehold.co/1920x600/333/fff');">
+        <!-- Slide 2 (Brightening Lives) -->
+        <div class="slide absolute inset-0 flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(46, 35, 69, 0.8), rgba(46, 35, 69, 0.8)), url('photos/HighQ/Headpond.jpg');">
             <div class="text-center px-4">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">Sustainable Energy <br> for a Brighter Tomorrow</h2>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">Brightening Countless Lives <br> With a 9.6 MW Hydropower Initiative</h2>
                 <a href="overview.html" class="inline-block border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-primaryDark transition">View Project Status >></a>
             </div>
         </div>
         <!-- Controls -->
-        <button onclick="changeSlide(-1)" class="absolute left-4 md:left-10 text-white text-3xl hover:text-gray-300"><i class="fas fa-chevron-left"></i></button>
-        <button onclick="changeSlide(1)" class="absolute right-4 md:right-10 text-white text-3xl hover:text-gray-300"><i class="fas fa-chevron-right"></i></button>
+        <button onclick="changeSlide(-1)" class="absolute left-4 md:left-10 text-white text-3xl hover:text-gray-300 z-10"><i class="fas fa-chevron-left"></i></button>
+        <button onclick="changeSlide(1)" class="absolute right-4 md:right-10 text-white text-3xl hover:text-gray-300 z-10"><i class="fas fa-chevron-right"></i></button>
     </section>
 
     <!-- WHO WE ARE -->
     <section class="py-16 container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
         <div class="w-full md:w-1/2">
-            <img src="https://placehold.co/600x400" alt="Construction Site" class="rounded shadow-lg w-full">
+            <!-- WHO WE ARE IMAGE -->
+            <img src="photos/HighQ/In-between-IP2-and-IP4.jpg" alt="Construction Site" class="rounded shadow-lg w-full">
         </div>
         <div class="w-full md:w-1/2">
             <h2 class="text-3xl font-bold mb-4">Who are We?</h2>
             <p class="text-gray-600 mb-6 leading-relaxed">
-                Daramkhola Hydro Energy Limited is a public limited liability company... [Content from image] ...focusing on the development of the Daramkhola Hydroelectric Project.
+                Daramkhola Hydro Energy Limited is a public limited liability company established with the main objective of electricity generation through optimal utilization of solar energy, wind energy and water resources available within the country. The company from its very beginning is focusing on the development of the Daramkhola Hydroelectric Project.
             </p>
             <a href="about-us.html" class="bg-primaryRed text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-red-700 transition">Learn More >></a>
         </div>
     </section>
-
+    
     <!-- ABOUT PROJECT (Dark Red Section) -->
     <section class="bg-gray-50 py-16">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
             <div class="w-full md:w-1/2">
                 <h2 class="text-3xl font-bold mb-4">About Daram Khola Hydro<br>Energy Project</h2>
                 <p class="text-gray-600 mb-6 leading-relaxed">
-                    The project is located in Baglung District... [Placeholder for full text]. It aims to contribute clean energy to the national grid.
+                    The project is located in Baglung District, Gandaki Province of Nepal. It utilizes the water from Daram Khola, which flows down from the Dhaulagiri mountain range. The project aims to contribute 9.6 MW of clean energy to the national grid, enhancing Nepal's energy security and promoting sustainable development.
                 </p>
                 <a href="overview.html" class="bg-primaryRed text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-red-700 transition">Learn More >></a>
             </div>
+            <!-- IMAGE PLACEHOLDER REPLACING THE CAPACITY CARD -->
             <div class="w-full md:w-1/2 relative">
-                <div class="bg-red-900 text-white p-12 rounded shadow-xl flex items-center justify-between">
-                    <span class="text-2xl font-bold">9.6 MW Capacity</span>
-                    <i class="fas fa-chevron-right"></i>
-                </div>
+                <img src="photos/HighQ/Photograph-of-Headworks-with-intake-undersluice-weir.jpg" alt="9.6 MW Capacity Visual" class="w-full h-64 object-cover rounded shadow-lg">
             </div>
         </div>
         <!-- Icons Grid -->
@@ -164,9 +173,18 @@
     <section class="py-16 text-center">
         <h2 class="text-3xl font-bold mb-10">Our Core Values</h2>
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-gray-600 text-white p-10 h-64 flex items-center justify-center text-xl font-bold">Empower people participation in Power Sector</div>
-            <div class="bg-gray-600 text-white p-10 h-64 flex items-center justify-center text-xl font-bold">Maximize Value of Money (Time, Technology and Competence)</div>
-            <div class="bg-gray-600 text-white p-10 h-64 flex items-center justify-center text-xl font-bold">Employee Innovative Engineering & Solutions</div>
+            <div class="text-white p-10 h-64 flex items-center justify-center text-xl font-bold rounded-xl shadow-md bg-cover bg-center" 
+                 style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('photos/HighQ/AB10-to-AB11.jpg');">
+                Empower people participation in Power Sector
+            </div>
+            <div class="text-white p-10 h-64 flex items-center justify-center text-xl font-bold rounded-xl shadow-md bg-cover bg-center"
+                 style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('photos/HighQ/Headpond.jpg');">
+                Maximize Value of Money (Time, Technology and Competence)
+            </div>
+            <div class="text-white p-10 h-64 flex items-center justify-center text-xl font-bold rounded-xl shadow-md bg-cover bg-center"
+                 style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('photos/HighQ/In-between-IP2-and-IP4.jpg');">
+                Employee Innovative Engineering & Solutions
+            </div>
         </div>
     </section>
 
@@ -177,11 +195,11 @@
                 <h2 class="text-3xl font-bold text-gray-400 mb-2">Mr. Nar Bahadur Pun (Niraj)</h2>
                 <p class="mb-4 text-gray-500">Executive Chairman</p>
                 <p class="leading-relaxed text-gray-300">
-                    We are launching this company with a vision to replicate our knowledge... [Placeholder text from image] ...contribute to nation building.
+                    Mr. Nar Bahadur Pun with a leadership personality trait have established good image in society. He is one of the former member of Parliament and has made active involvements to uplift the livelihood of people and contributed a lot for the development of society & nation. He is the founder & former Principal of Secondary School with more than 10 years of experience. With his active enrolment and valuable contributions he was able to establish Mini Micro Hydropower in Baglung district.
                 </p>
             </div>
             <div class="w-full md:w-1/3 text-center">
-                <img src="https://placehold.co/200x200" alt="Chairman" class="rounded-xl border-4 border-white inline-block">
+                <img src="photos/Nar-Bahadur-Pun.jpg" alt="Chairman" class="rounded-xl border-4 border-white inline-block">
             </div>
         </div>
     </section>
@@ -190,15 +208,16 @@
     <section class="py-16 text-center">
         <h2 class="text-3xl font-bold mb-10">Gallery</h2>
         <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-2">
-            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
-            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
-            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
-            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
-            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
-            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
-            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
-            <img src="https://placehold.co/300x200" class="w-full h-40 object-cover">
+            <img src="photos/HighQ/AB10-to-AB11.jpg" class="w-full h-40 object-cover rounded shadow-sm">
+            <img src="photos/HighQ/Headpond.jpg" class="w-full h-40 object-cover rounded shadow-sm">
+            <img src="photos/HighQ/In-between-IP2-and-IP4.jpg" class="w-full h-40 object-cover rounded shadow-sm">
+            <img src="photos/HighQ/Photograph-of-Headworks-with-intake-undersluice-weir.jpg" class="w-full h-40 object-cover rounded shadow-sm">
+            <img src="photos/HighQ/Pipe-erection-between-IP11-13-IP17.jpg" class="w-full h-40 object-cover rounded shadow-sm">
+            <img src="photos/HighQ/Powerhouse.jpg" class="w-full h-40 object-cover rounded shadow-sm">
+            <img src="photos/HighQ/Settling-Basin.jpg" class="w-full h-40 object-cover rounded shadow-sm">
+            <img src="photos/HighQ/Photographs-of-Switchyard-on-Harichaur.jpg" class="w-full h-40 object-cover rounded shadow-sm">
         </div>
+        <a href="gallery.html" class="mt-8 inline-block text-primaryRed font-semibold hover:underline">View All Gallery Items >></a>
     </section>
 
     <!-- CONTACT & MAP -->
@@ -211,21 +230,29 @@
                     <div class="flex items-center"><i class="fas fa-phone-alt w-8 text-primaryRed"></i> <span>+977-1-4246045</span></div>
                     <div class="flex items-center"><i class="fas fa-envelope w-8 text-primaryRed"></i> <span>info@daramkholahydro.com</span></div>
                 </div>
-                <div class="bg-gray-200 h-64 w-full rounded relative overflow-hidden">
-                     <!-- Google Map Placeholder -->
-                     <img src="https://placehold.co/600x400?text=Google+Map+Location" class="w-full h-full object-cover">
+                <!-- Google Maps Embed -->
+                <div class="bg-gray-200 h-64 w-full rounded relative overflow-hidden border border-gray-300">
+                     <iframe 
+                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.8028129005406!2d85.31480051035943!3d27.692488776091743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb192375620007%3A0x279c723bf4f42589!2sDaram%20khola%20hydro%20energy%20limited!5e0!3m2!1sen!2snp!4v1765018830801!5m2!1sen!2snp" 
+                         width="100%" 
+                         height="100%" 
+                         style="border:0;" 
+                         allowfullscreen="" 
+                         loading="lazy" 
+                         referrerpolicy="no-referrer-when-downgrade">
+                     </iframe>
                 </div>
             </div>
             <div class="w-full md:w-1/2 bg-white p-8 rounded shadow">
                 <h2 class="text-2xl font-bold mb-6">Send Us Message</h2>
                 <form class="space-y-4">
                     <div class="flex gap-4">
-                        <input type="text" placeholder="Name" class="w-1/2 border p-3 rounded">
-                        <input type="text" placeholder="Phone" class="w-1/2 border p-3 rounded">
+                        <input type="text" placeholder="Name" class="w-1/2 border p-3 rounded focus:ring-primaryRed focus:border-primaryRed">
+                        <input type="text" placeholder="Phone" class="w-1/2 border p-3 rounded focus:ring-primaryRed focus:border-primaryRed">
                     </div>
-                    <input type="email" placeholder="Email" class="w-full border p-3 rounded">
-                    <textarea placeholder="Your Message" rows="4" class="w-full border p-3 rounded"></textarea>
-                    <button class="bg-primaryRed text-white px-8 py-3 rounded hover:bg-red-700 w-full md:w-auto">Submit</button>
+                    <input type="email" placeholder="Email" class="w-full border p-3 rounded focus:ring-primaryRed focus:border-primaryRed">
+                    <textarea placeholder="Your Message" rows="4" class="w-full border p-3 rounded focus:ring-primaryRed focus:border-primaryRed"></textarea>
+                    <button class="bg-primaryRed text-white px-8 py-3 rounded hover:bg-red-700 w-full md:w-auto font-semibold transition">Submit</button>
                 </form>
             </div>
         </div>
@@ -235,24 +262,25 @@
     <footer class="bg-white border-t border-gray-200 pt-12">
         <div class="container mx-auto px-4 lg:px-8 mb-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
+                <!-- CORRECTED LOGO PATH HERE -->
                 <img src="photos/Logo.png" alt="Footer Logo" class="h-10 mb-4">
                 <p class="text-gray-600 text-sm">Daramkhola Hydro Energy Limited is a public limited liability company established with the main objective of electricity generation.</p>
             </div>
             <div>
                 <h3 class="text-primaryRed font-bold mb-4">Quick Links</h3>
                 <ul class="space-y-2 text-sm text-gray-600">
-                    <li><a href="events.html">Events Calendar</a></li>
-                    <li><a href="downloads.html">Downloads</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="events.html" class="hover:text-primaryRed">Events Calendar</a></li>
+                    <li><a href="downloads.html" class="hover:text-primaryRed">Downloads</a></li>
+                    <li><a href="news.html" class="hover:text-primaryRed">News</a></li>
+                    <li><a href="gallery.html" class="hover:text-primaryRed">Gallery</a></li>
                 </ul>
             </div>
             <div>
                 <h3 class="text-primaryRed font-bold mb-4">Important Links</h3>
                 <ul class="space-y-2 text-sm text-gray-600">
-                    <li><a href="#">Dept of Electricity Development</a></li>
-                    <li><a href="#">Nepal Electricity Authority</a></li>
-                    <li><a href="#">Dept of Hydrology and Metrology</a></li>
+                    <li><a href="#" class="hover:text-primaryRed">Dept of Electricity Development</a></li>
+                    <li><a href="#" class="hover:text-primaryRed">Nepal Electricity Authority</a></li>
+                    <li><a href="#" class="hover:text-primaryRed">Dept of Hydrology and Metrology</a></li>
                 </ul>
             </div>
             <div>
@@ -273,12 +301,20 @@
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
+        
+        // Initialize the first slide as active
+        if (slides.length > 0) {
+            slides[0].classList.add('active');
+        }
+
         function changeSlide(direction) {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + direction + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
         }
-        setInterval(() => changeSlide(1), 5000); // Auto slide every 5s
+        
+        // Auto slide every 5s
+        setInterval(() => changeSlide(1), 5000); 
     </script>
 </body>
 </html>
